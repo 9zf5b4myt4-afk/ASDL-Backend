@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "project_actions",
+  "info": {
+    "singularName": "project-action",
+    "pluralName": "project-actions",
+    "displayName": "Project/Action"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Action_Name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "Impact_Metric": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Date_Timeline": {
+      "type": "datetime",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Axis": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::strategic-axis.strategic-axis",
+      "inversedBy": "project_actions"
+    },
+    "ProjectStatus": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "enum": [
+        "Draft",
+        "In_Progress",
+        "Completed"
+      ]
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "strategic_axes",
+  "info": {
+    "singularName": "strategic-axis",
+    "pluralName": "strategic-axes",
+    "displayName": "Strategic Axis"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "unique": true
+    },
+    "ShortDescription": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "DetailedObjective": {
+      "type": "blocks",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "projectstatus": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Completed"
+      ]
+    },
+    "project_actions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project-action.project-action",
+      "mappedBy": "Axis"
+    }
+  }
+}
